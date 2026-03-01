@@ -1,0 +1,16 @@
+# Node.js dependencies
+node_modules
+dist
+build
+
+# Cypress asset folders to exclude from source control
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
+test-output/
+*.log.*
+
+# Configuration files that may contain secrets
+# Use environment variables for CI/CD instead of committing secrets
+cypress.env.json
+*.secret
