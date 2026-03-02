@@ -1,4 +1,5 @@
 onlyBuiltDependencies:
   - cypress
+  - dotenv
 
 sideEffectsCache: false
