@@ -5,7 +5,7 @@ export const ParabankApiClient = {
      * @param {boolean} uniqueSuffix - If true, a unique suffix will be added to the username and password.
      * @returns {object} The customer object.
      */
-    registerNewUser(stayLoggedIn = true, uniqueSuffix = true) {
+    registerNewUser({ stayLoggedIn = true, uniqueSuffix = true }) {
         const customer = {};
         cy.env(['userData']).then(({ userData }) => {
             return cy.request({

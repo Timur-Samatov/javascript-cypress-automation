@@ -6,7 +6,7 @@ import { ParabankApiClient } from "../../support/parabankApiClient";
 describe('Test successful login to the Parabank application.', () => {
     let freshRegisteredUser
     before(() => {
-        freshRegisteredUser = ParabankApiClient.registerNewUser(false);
+        freshRegisteredUser = ParabankApiClient.registerNewUser({ stayLoggedIn: false });
     })
     it('Verify that the user can successfully log in to the application.', () => {
         // Open the ParaBank homepage
