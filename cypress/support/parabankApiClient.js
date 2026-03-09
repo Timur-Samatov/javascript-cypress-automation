@@ -38,8 +38,6 @@ export const ParabankApiClient = {
                 body.append('customer.username', customer.username);
                 body.append('customer.password', customer.password);
                 body.append('repeatedPassword', customer.password);
-                cy.log("SSSSSSS")
-                cy.log(Object.fromEntries(body))
 
                 cy.request({
                     method: 'POST',
@@ -49,6 +47,11 @@ export const ParabankApiClient = {
                     },
                     form: true,
                     body: Object.fromEntries(body)
+                }).then(() => {
+                    this.getCustomerId(customer.username, customer.password)
+                        .then((id) => {
+                            customer.id = id;
+                        })
                 })
 
                 if (!stayLoggedIn) {
@@ -57,5 +60,21 @@ export const ParabankApiClient = {
             })
         })
         return customer;
+    },
+
+    authenticatedHeaders(username, password) {
+        return {
+            "Authorization": "Basic " + btoa(username + ":" + password),
+            "Accept": "application/json"
+        }
+    },
+    getCustomerId(username, password) {
+        return cy.request({
+            method: 'GET',
+            url: `/parabank/services/bank/login/${username}/${password}`,
+            headers: this.authenticatedHeaders(username, password)
+        }).then((response) => {
+            return response.body.id;
+        })
     }
 }
