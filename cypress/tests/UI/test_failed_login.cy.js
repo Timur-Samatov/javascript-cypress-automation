@@ -1,5 +1,5 @@
-import { HomePage } from "../../pages/homePage";
-import { AccoutOverviewPage } from "../../pages/accoutOverviewPage";
+import { HomePage } from "@pages/homePage";
+import { AccoutOverviewPage } from "@pages/accoutOverviewPage";
 
 describe('Test that login fails with invalid credentials and displays appropriate error messages.', () => {
     it('', () => {

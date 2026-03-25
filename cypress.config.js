@@ -1,5 +1,6 @@
 import { defineConfig } from "cypress";
 import dotenv from "dotenv";
+import vitePreprocessor from "cypress-vite";
 
 dotenv.config();
 
@@ -18,7 +19,10 @@ export default defineConfig({
     baseUrl: process.env.BASE_URL,
     specPattern: "cypress/tests/**/*.cy.js",
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      on("file:preprocessor", vitePreprocessor({
+        configFile: "vite.config.js"
+      }));
+      return config;
     },
   },
 });

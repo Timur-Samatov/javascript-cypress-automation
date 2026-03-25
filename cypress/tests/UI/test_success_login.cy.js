@@ -1,6 +1,6 @@
-import { HomePage } from "../../pages/homePage";
-import { AccoutOverviewPage } from "../../pages/accoutOverviewPage";
-import { ParabankApiClient } from "../../support/parabankApiclient";
+import { HomePage } from "@pages/homePage";
+import { AccoutOverviewPage } from "@pages/accoutOverviewPage";
+import { ParabankApiClient } from "@support/parabankApiClient";
 
 describe("Test successful login to the Parabank application.", () => {
   let freshRegisteredUser;
